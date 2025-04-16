@@ -4,10 +4,13 @@
 
 ## Setup 
 
-Unless you want to change/update the planner service, we suggest running 
-the planner in a docker container. 
+First, clone this repository and its submodules:
 
-To build the docker image yourself run:
+```
+git clone --recurse-submodules -j8 git://github.com/nrealus/ipexco-planner-service-beluga-up-aries.git
+```
+
+To build the docker image, run:
 
 ```
 docker build -t ipexco-planner-service-beluga-up-aries .
