@@ -2,7 +2,6 @@
 import fs from 'fs'
 import { PlanningModel } from '../domain/model';
 import { PlanProperty } from '../domain/plan_property';
-import { json } from 'stream/consumers';
 import assert from 'assert';
 
 export interface GoalDefinition {
@@ -18,10 +17,18 @@ export function setupExperimentEnvironment(model: PlanningModel, goalDefinition:
     const problem_path = expFolder + '/problem_base.json'
     fs.writeFileSync(problem_path, JSON.stringify(model))
 
-    const properties_path = expFolder + '/problem_props.json'
-//    fs.writeFileSync(properties_path, JSON.stringify(goalDefinition))
-    fs.writeFileSync(properties_path, JSON.stringify([]))
+    console.log("plan_properties: ", goalDefinition.plan_properties);
+    var properties = []
+    if (goalDefinition.plan_properties !== undefined) {
+        assert(goalDefinition.soft_goals.length == 0);
+        properties = goalDefinition.plan_properties.filter((item) => goalDefinition.hard_goals.includes(item._id)).map((item) => item);
+    }
 
+    const properties_path = expFolder + '/problem_props.json'
+    fs.writeFileSync(
+        properties_path,
+        JSON.stringify(properties),
+    )
 }
 
 
