@@ -64,7 +64,7 @@ The following variables are only required, if the service is run natively:
 
 - `TEMP_RUN_FOLDERS`: path to a folder to store the input of the planner and 
     its intermediate results
-- `PLANNER_SERVICE_PLANNER`: path to the planner executable/script (`beluga-up-aries/beluga.py`). TODO: describe arguments
+- `PLANNER_SERVICE_PLANNER`: path to the planner executable/script (`beluga/beluga.py`). TODO: describe arguments
 - `MAX_NUM_AVAILABLE_SWAPS`: maximum number of possible "swaps" to be used in plans. (See below)
 
 ### Planner Description
