@@ -1,4 +1,4 @@
 [submodule "beluga"]
 	path = beluga
 	url = https://github.com/plaans/beluga
-	branch = dev
+	branch = main
