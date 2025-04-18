@@ -6,11 +6,6 @@ RUN apt-get upgrade -y
 RUN apt-get update
 RUN apt-get upgrade -y
 
-# Copy beluga repository (w/ submodules)
-
-RUN mkdir -p /usr/src/beluga
-COPY beluga/ /usr/src/beluga/
-
 # Python
 
 RUN apt-get remove -y python3.12
@@ -52,11 +47,17 @@ RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 RUN cargo --version
 
+# Copy beluga repository (w/ submodules)
+
+RUN mkdir -p /usr/src/beluga
+COPY beluga/ /usr/src/beluga/
+
 # Build the approriate Rust executables
 
 WORKDIR /usr/src/beluga/aries-beluga/
 RUN cargo build --bin up-server --release
 RUN cargo build --bin beluga --release
+# TODO ^^^ settle on which is used
 
 # Node.js
 
