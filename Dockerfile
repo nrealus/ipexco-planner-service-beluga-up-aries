@@ -55,9 +55,8 @@ COPY beluga/ /usr/src/beluga/
 # Build the approriate Rust executables
 
 WORKDIR /usr/src/beluga/aries-beluga/
-RUN cargo build --bin up-server --release
+# RUN cargo build --bin up-server --release
 RUN cargo build --bin beluga --release
-# TODO ^^^ settle on which is used
 
 # Node.js
 
