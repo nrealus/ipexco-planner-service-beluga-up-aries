@@ -107,7 +107,7 @@ function runPlanner(plan_run: PlanRun, job: Job<any>): Promise<boolean> {
             plan_run.status = PlanRunStatus.SOLVED;
             break;
           case 2:
-            plan_run.status = PlanRunStatus.NO_PLAN_FOUND;
+            plan_run.status = PlanRunStatus.UNSOLVABLE;
             break;
           default:
             plan_run.status = PlanRunStatus.FAILED;
