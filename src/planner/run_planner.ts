@@ -15,6 +15,7 @@ export function create_temp_goal_plan_run(request: PlannerRequest): PlanRun {
     planner: process.env.PLANNER_SERVICE_PLANNER,
     args: [
       'solve',
+      process.env.MAX_NUM_AVAILABLE_SWAPS,
       'problem_base.json',
       'problem_props.json',
     ]
