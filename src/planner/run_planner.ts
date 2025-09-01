@@ -18,6 +18,7 @@ export function create_temp_goal_plan_run(request: PlannerRequest): PlanRun {
       process.env.MAX_NUM_AVAILABLE_SWAPS,
       'problem_base.json',
       'problem_props.json',
+      '1', // optimal solving
     ]
   }
 }
